@@ -1,4 +1,4 @@
-// 全局对象保存当前的的fn
+// 全局对象保存当前的的effect实例
 let activeEffect;
 class ReactiveEffect {
   private _fn: any;
@@ -33,4 +33,13 @@ export function track(target, key) {
     depsMap.set(key, dep);
   }
   dep.add(activeEffect);
+}
+
+// 触发依赖
+export function trigger(target,key){
+  const depsMap=targetMap.get(target)
+  const dep=depsMap.get(key)
+  for (const effect of dep) {
+    effect.run()
+  }
 }

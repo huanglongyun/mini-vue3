@@ -9,5 +9,9 @@ describe("effect", () => {
       age = user.age + 1;
     });
     expect(age).toBe(19);
+
+    // update 
+    user.age++
+    expect(age).toBe(20)
   });
 });
