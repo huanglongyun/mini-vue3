@@ -1,6 +1,6 @@
 import { reactive } from '../src/reactivity/reactive';
 describe("reactive", () => {
-  it("happy path", async () => {
+  it("happy path", () => {
     const obj = { foo: 1 };
     const newObj = reactive(obj);
 
